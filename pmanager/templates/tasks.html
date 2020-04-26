@@ -1,0 +1,39 @@
+{% extends "layout.html" %}
+
+{% block content %}
+
+    <div class="col s8 offset-s2">
+        <h3 class="center">Task List</h3>
+
+        <a href="{{ url_for('task_new') }}" class="btn-floating btn-large waves-effect waves-light red"><i class="material-icons">add</i></a>
+
+        {% if tasks %}
+        <table class="striped">
+            <thead>
+              <tr>
+                  <th>Name</th>
+                  <th>Description</th>
+                  <th>Priority</th>
+                  <th>Status</th>
+                  <th></th>
+                  <th></th>
+              </tr>
+            </thead>
+
+            <tbody>
+                {% for task in tasks %}
+                    <tr>
+                        <td>{{ task.title }}</td>
+                        <td>{{ task.description }}</td>
+                        <td>{{ task.priority }}</td>
+                        <td>{{ task.status }}</td>
+                        <td><a href="{{ url_for('task_edit', task_id=task.id) }}" class="waves-effect waves-light btn">Edit</a></td>
+                        <td><a href="{{ url_for('task_delete', task_id=task.id) }}" class="waves-effect waves-light btn red accent-4">Delete</a></td>
+                    </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+        {% endif %}
+    </div>
+
+{% endblock content %}

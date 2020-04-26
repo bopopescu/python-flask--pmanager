@@ -1,0 +1,27 @@
+{% extends "layout.html" %}
+
+{% block content %}
+
+
+
+    <form class="col s4 offset-s4" method="POST" action="{{ url_for('task_new') }}">
+        {{ form.csrf_token }}
+
+        <h3 class="center">Create a task</h3>
+
+        <div class="row">
+            <div class="input-field col s12">
+                <legend>{{ form.title.label }}</legend>
+                {{ form.title(class="materialize-textarea") }}
+            </div>
+        <div class="row">
+            <div class="input-field col s12">
+                <legend>{{ form.description.label }}</legend>
+                {{ form.description(class="materialize-textarea") }}
+            </div>
+        </div>
+        <button class="btn waves-effect waves-ligh red lighten-1" type="submit" name="action">Submit
+            <i class="material-icons right lighten-1">send</i>
+        </button>
+    </form>
+{% endblock content %}

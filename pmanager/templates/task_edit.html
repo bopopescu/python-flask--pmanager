@@ -1,0 +1,32 @@
+{% extends "layout.html" %}
+
+{% block content %}
+
+    <form id="edit-form" method="POST" class="col s4 offset-s4" action="{{ url_for('task_edit', task_id=task.id) }}">
+        <input type="hidden" name="csrf_token" value="{{ csrf_token() }}"/>
+        <h3 class="center">Edit mode</h3>
+
+        <div class="row">
+            <div class="input-field col s12">
+                <input id="title" type="text" name="title" class="validate" value="{{ task.title }}">
+                <label for="title">Title</label>
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="input-field col s12">
+                <textarea name="description" id="description" class="materialize-textarea">{{ task.description }}</textarea>
+                <label for="description">Description</label>
+            </div>
+        </div>
+
+        <button class="btn waves-effect waves-ligh red lighten-1" type="submit" name="action">Save
+            <i class="material-icons right lighten-1">send</i>
+        </button>
+    </form>
+
+    <script>
+        document.getElementById("description").defaultValue = ;
+    </script>
+
+{% endblock content %}

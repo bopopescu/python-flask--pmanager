@@ -1,0 +1,60 @@
+{% extends "layout.html" %}
+
+{% block content %}
+
+<div class="container">
+      <br><br>
+      <h1 class="header center orange-text">Task manager</h1>
+      <div class="row center">
+        <h5 class="header col s12 light">I finally got the chance to test Materialize. Bootstrap had become boring</h5>
+      </div>
+      <div class="row center">
+        <a href="{{ url_for('tasks') }}" id="download-button" class="btn-large waves-effect waves-light orange">Manage tasks</a>
+      </div>
+      <br><br>
+
+</div>
+
+
+<div class="container">
+    <div class="section">
+
+      <!--   Icon Section   -->
+      <div class="row">
+        <div class="col s12 m4">
+          <div class="icon-block">
+            <h2 class="center light-blue-text"><i class="material-icons">flash_on</i></h2>
+            <h5 class="center">Authentication</h5>
+
+            <p class="light">Flask is such as a great Micro Framework that I had the chance to actually start building my own authentication system. Of course it does not yet compare to Laravel auth, but trust me it will be better than what it currently is
+                <br>Remember I've done this project in pretty much a day or nearly two.</p>
+          </div>
+        </div>
+
+        <div class="col s12 m4">
+          <div class="icon-block">
+            <h2 class="center light-blue-text"><i class="material-icons">group</i></h2>
+            <h5 class="center">Tasks management</h5>
+
+            <p class="light">Anyone learning a new Language should definitely build at least one TODO app, and this is mine! A task manager.
+            Yes, there are plenty out there but I built mine using my own logic and with Python using raw SQL on the database side. I also took the moment to show a bit of what I know about the WTForms module when creating new tasks.
+            </p>
+          </div>
+        </div>
+
+        <div class="col s12 m4">
+          <div class="icon-block">
+            <h2 class="center light-blue-text"><i class="material-icons">settings</i></h2>
+            <h5 class="center">Database connection</h5>
+
+            <p class="light">My fingers have been itching to write raw sequel queries, and even though these are just basic queries, I really had to do everything from scratch without the Alchemy manager. Yes I know Alchemy :)
+                <br>In this project I built my own Database class using mysql connector and have created quite a few CRUD methods already.</p>
+          </div>
+        </div>
+      </div>
+
+    </div>
+    <br><br>
+</div>
+
+{% endblock %}

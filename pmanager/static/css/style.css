@@ -1,0 +1,9 @@
+.flashed-message {
+    padding: 10px !important;
+    text-align: center;
+    border-radius: 3.5px;
+}
+
+#edit-form #description{
+    resize: auto;
+}
