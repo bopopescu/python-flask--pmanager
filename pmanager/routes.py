@@ -104,3 +104,10 @@ def register():
 
             flash('Account created! You may now login', 'success')
             return redirect(url_for('login'))
+
+@app.route("/logout", methods=['GET', 'POST'])
+@login_required
+def logout():
+    authenticate.logout()
+
+    return redirect(url_for('home'))
