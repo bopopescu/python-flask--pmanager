@@ -41,9 +41,6 @@ class Auth:
 
         return self
 
-    # with app.test_request_context(request):
-    #     is_logged(request)
-
     # create a function that returns the data of the current user (id or email)
     def get_id(self):
         pass
