@@ -1,27 +1,24 @@
 <header>
-    <!-- Dropdown Structure -->
-    <ul id="dropdown1" class="dropdown-content">
-        {% if session.logged_in %}
-            <li><a href="">{{ session.auth_name }}</a></li>
-            <li><a href="#!">Logout</a></li>
-        {% else %}
-            <li><a href="{{ url_for('register') }}">Register</a></li>
-            <li><a href="{{ url_for('login') }}">Login</a></li>
-        {% endif %}
 
-    </ul>
     <nav>
       <div class="nav-wrapper">
         <a href="#!" class="brand-logo">Logo</a>
         <ul class="right hide-on-med-and-down">
           <li><a href="{{ url_for('tasks') }}">Tasks</a></li>
-          <!-- Dropdown Trigger -->
-          <li><a class="dropdown-trigger" href="#!" data-target="dropdown1">Dropdown<i class="material-icons right">arrow_drop_down</i></a></li>
+
+            {% if session.logged_in %}
+                <li><a href="">{{ session.auth_name }}</a></li>
+                <li><a href="{{ url_for('logout') }}">Logout</a></li>
+            {% else %}
+                <li><a href="{{ url_for('register') }}">Register</a></li>
+                <li><a href="{{ url_for('login') }}">Login</a></li>
+            {% endif %}
         </ul>
       </div>
     </nav>
 
-    <ul id="slide-out" class="sidenav red accent-2">
+    {% if session.logged_in %}
+        <ul id="slide-out" class="sidenav red accent-2">
       <li><div class="user-view">
         <div class="background">
           <img src="images/office.jpg">
@@ -33,9 +30,11 @@
       <li><a href="#!" class="white-text">Tasks</a></li>
       <li><a href="#!" class="white-text">Second Link</a></li>
     </ul>
-    <div class="fixed-action-btn">
-      <a data-target="slide-out" class="sidenav-trigger btn-floating btn-large red">
-        <i class="large material-icons menu">mode_edit</i>
-      </a>
-    </div>
+
+        <div class="fixed-action-btn">
+          <a data-target="slide-out" class="sidenav-trigger btn-floating btn-large red">
+            <i class="large material-icons menu">mode_edit</i>
+          </a>
+        </div>
+    {% endif %}
 </header>
